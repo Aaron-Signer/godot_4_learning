@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7u02sl5blmkt"]
+
+[ext_resource type="Script" path="res://scenes/gem/gem.gd" id="1_tethx"]
+[ext_resource type="Texture2D" uid="uid://deo0f36ixtwjp" path="res://assets/element_red_diamond.png" id="2_vrqid"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5j6v"]
+radius = 1.0645
+
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_tethx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vrqid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.45058e-09, 23)
+rotation = 0.785398
+scale = Vector2(1.88, 1.88)
+shape = SubResource("CircleShape2D_p5j6v")

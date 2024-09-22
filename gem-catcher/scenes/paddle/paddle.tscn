@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd8354wnfoba2"]
+
+[ext_resource type="Script" path="res://scenes/paddle/paddle.gd" id="1_n1svt"]
+[ext_resource type="Texture2D" uid="uid://djwy71cpsg167" path="res://assets/paddleBlu.png" id="1_sed7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qas50"]
+size = Vector2(0, 89)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3piw"]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uwnfw"]
+radius = 4.0
+
+[node name="Paddle" type="Area2D"]
+script = ExtResource("1_n1svt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sed7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499998, -12)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_qas50")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(34, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_g3piw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(37, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uwnfw")
+
+[connection signal="area_entered" from="." to="." method="_on_gem_area_entered"]
