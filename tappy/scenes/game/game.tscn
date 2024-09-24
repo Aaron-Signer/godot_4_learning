@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://sg1gq8vnsdxt"]
+
+[ext_resource type="Texture2D" uid="uid://chce7u80uspxh" path="res://assets/background/rocks_2.png" id="1_h5sbt"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_mi33j"]
+[ext_resource type="PackedScene" uid="uid://huoaoe1n84g" path="res://scenes/plane/plane.tscn" id="2_usu8r"]
+[ext_resource type="PackedScene" uid="uid://cbovgxuyk4hid" path="res://scenes/platform/platform.tscn" id="4_dxitc"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_mi33j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(275, 460)
+texture = ExtResource("1_h5sbt")
+
+[node name="Plane" parent="." instance=ExtResource("2_usu8r")]
+position = Vector2(83, 449)
+
+[node name="Platform" parent="." instance=ExtResource("4_dxitc")]
+position = Vector2(0, -10)
+
+[node name="Platform2" parent="." instance=ExtResource("4_dxitc")]
+position = Vector2(0, 864)
+
+[connection signal="hit_floor" from="Plane" to="." method="_on_character_body_2d_hit_floor"]
