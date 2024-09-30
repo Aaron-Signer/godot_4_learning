@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 
 @export var jump_speed: int = -400
-signal hit_floor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,4 +22,4 @@ func _physics_process(delta) -> void:
 	
 	if is_on_floor():
 		animated_sprite_2d.stop()
-		hit_floor.emit()
+		SignalManager.has_died.emit()
